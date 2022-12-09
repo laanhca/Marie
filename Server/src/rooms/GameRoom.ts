@@ -1,6 +1,6 @@
 import { Room, Client } from "colyseus";
-import { GameRoomState } from "../states/GameRoomSate";
-export class MyRoom extends Room<GameRoomState> {
+import { GameRoomState } from "../game_states/GameRoomState";
+export class GameRoom extends Room<GameRoomState> {
 
   onCreate (options: any) {
     this.setState(new GameRoomState());
