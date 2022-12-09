@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DemoObserver;
+using TMPro;
 
 
 public class Marine : MonoBehaviour
@@ -14,18 +15,20 @@ public class Marine : MonoBehaviour
 	[SerializeField] Transform barrelPosition = null;
 	/// Bullet prefab
 	[SerializeField] GameObject bulletPrefab = null;
-
+	// Text display name
+	[SerializeField] private TMP_Text nameText;
 	void OnValidate()
 	{
 		Common.Warning(gunTransform != null, "Marine is missing gunTransform !!");
 		Common.Warning(barrelPosition != null, "Marine is missing barrelPosition !!");
 		Common.Warning(barrelPosition != null, "Marine is missing bulletPrefab !!");
+		Common.Warning(nameText != null, "Marine is missing nameText !!");
 	}
 
 	void Awake()
 	{
 		// if the config data is missing, then disable this script
-		if (gunTransform == null || barrelPosition == null || bulletPrefab == null)
+		if (gunTransform == null || barrelPosition == null || bulletPrefab == null || nameText == null)
 		{
 			this.enabled = false;
 		}
@@ -53,6 +56,11 @@ public class Marine : MonoBehaviour
 			// create bullet
 			Instantiate(bulletPrefab, barrelPosition.position, gunTransform.rotation);
 		}
+	}
+
+	public void SetName(string name)
+	{
+		nameText.text = name;
 	}
 
 	#endregion
