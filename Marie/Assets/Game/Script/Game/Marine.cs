@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using DemoObserver;
 using TMPro;
+using UnityEditor;
+using MessageType = Game.ColyseusSDK.MessageType;
 
 
 public class Marine : MonoBehaviour
@@ -17,6 +20,15 @@ public class Marine : MonoBehaviour
 	[SerializeField] GameObject bulletPrefab = null;
 	// Text display name
 	[SerializeField] private TextMeshPro nameText;
+	
+	//Character move
+	private float input;
+	[Range(0,5)]
+	[SerializeField] private float speed = 2f;
+	private Vector3 posTarget;
+	private float sendTimer = 0f;
+	private readonly float sendInterval = 50 / 1000f;
+
 	void OnValidate()
 	{
 		Common.Warning(gunTransform != null, "Marine is missing gunTransform !!");
@@ -56,11 +68,48 @@ public class Marine : MonoBehaviour
 			// create bullet
 			Instantiate(bulletPrefab, barrelPosition.position, gunTransform.rotation);
 		}
+		
+		//move
+		input =Input.GetAxisRaw("Horizontal");
+		if (input != 0)
+		{
+			Vector3 pos = transform.position;
+			var x = pos.x + input * Time.fixedDeltaTime * speed;
+			Vector3 target = new Vector3(x, pos.y, pos.z);
+			transform.position = target;
+			var data = new { x = target.x, y = target.y, z = target.z };
+
+			if (sendTimer > sendInterval)
+			{
+				ColyseusNetwork.Instance.Room.Send((int)MessageType.MOVE, data);
+
+				sendTimer = 0;
+			}
+			sendTimer += Time.deltaTime;
+			
+		}
+
+
+		
+	}
+
+	private void FixedUpdate()
+	{
+		if (posTarget != Vector3.zero && Vector3.Distance(transform.position, posTarget) > 0.1f)
+		{
+			transform.position = Vector3.MoveTowards(transform.position, posTarget, speed*Time.fixedDeltaTime);
+		}
+		
 	}
 
 	public void SetName(string name)
 	{
 		nameText.text = name;
+	}
+
+	public void SetPositionTarget(Vector3 pos)
+	{
+		posTarget = pos;
 	}
 
 	#endregion

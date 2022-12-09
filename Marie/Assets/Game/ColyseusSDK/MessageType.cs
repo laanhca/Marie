@@ -1,6 +1,6 @@
 namespace Game.ColyseusSDK
 {
-    enum MessageType {
-        INPUT = 1,
+   public enum MessageType {
+        MOVE = 0,
     }
 }

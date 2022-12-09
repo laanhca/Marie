@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This Object include all entities of room
+/// </summary>
 public class Gameplay : MonoBehaviour
 {
     [SerializeField] private GameObject mariePrefab;
@@ -22,7 +24,15 @@ public class Gameplay : MonoBehaviour
     public void RemovePlayer(string sessionId)
     {
         Marine leftMarine = _players[sessionId];
-        Destroy(leftMarine);
+        Destroy(leftMarine.gameObject);
         _players.Remove(sessionId);
+    }
+
+    public void OnPlayerMove(string sessionId, float x)
+    {
+        Marine marine = _players[sessionId];
+        Vector3 pos = marine.gameObject.transform.position;
+        Vector3 target = new Vector3(x, pos.y, pos.z);
+        marine.SetPositionTarget(target);
     }
 }

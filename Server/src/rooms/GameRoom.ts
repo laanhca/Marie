@@ -1,6 +1,13 @@
 import { Room, Client } from "colyseus";
 import { GameRoomState } from "../game_states/GameRoomState";
+
+enum MessageType {
+  MOVE = 0,
+}
+
 export class GameRoom extends Room<GameRoomState> {
+
+  
 
   onCreate (options: any) {
     this.setState(new GameRoomState());
@@ -9,11 +16,9 @@ export class GameRoom extends Room<GameRoomState> {
 
 
     //handlers message from clients
-    // this.onMessage(MessageType.INPUT, (client, message) => {
-    //     //
-    //     // handle "type" message
-    //     //
-    //   });
+    this.onMessage(MessageType.MOVE, (client, data) => {
+        this.state.onPlayerMove(client, data);
+      });
 
   }
 

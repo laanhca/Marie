@@ -12,4 +12,8 @@ export class PlayerState extends Schema{
         this.name = name;
         this.dir = true;
     }
+    move(data: any) {
+        this.x = data.x;
+        console.log(this.x);
+    }
 }

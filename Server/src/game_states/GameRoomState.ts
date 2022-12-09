@@ -13,4 +13,8 @@ export class GameRoomState extends Schema{
     onRemovePlayer(client: Client){
         this.players.delete(client.sessionId);
     }
+
+    onPlayerMove(client: Client, data: any){
+        this.players.get(client.sessionId).move(data);
+    }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Colyseus;
+using Colyseus.Schema;
 using UnityEngine;
 
 public class ColyseusNetwork : MonoBehaviour
@@ -16,10 +17,16 @@ public class ColyseusNetwork : MonoBehaviour
 
     private ColyseusRoom<GameRoomState> _room;
 
-    private void OnValidate()
+    public ColyseusRoom<GameRoomState> Room
     {
-        // Common.Warning(gameplay != null, "ColyseusNetwork is missing gameplay !!");
+        get { return _room; }
+    }
 
+    public static ColyseusNetwork Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
     }
 
     private void Start()
@@ -73,8 +80,21 @@ public class ColyseusNetwork : MonoBehaviour
     private void OnAddPlayer(string sessionId, PlayerState playerState)
     {
         _gameplay.AddPlayer(sessionId, playerState);
-        
+        playerState.OnChange += (changes =>
+        {
+            OnChangePlayer(changes, sessionId);
+        });
+
     }
 
-  
+    private void OnChangePlayer(List<DataChange> changes, string sessionId)
+    {
+        foreach (var change in changes)
+        {
+            if (change.Field == "x")
+            {
+                _gameplay.OnPlayerMove(sessionId, (float)change.Value);
+            }
+        }
+    }
 }
