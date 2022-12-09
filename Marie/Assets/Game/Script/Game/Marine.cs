@@ -76,17 +76,10 @@ public class Marine : MonoBehaviour
 			Vector3 pos = transform.position;
 			var x = pos.x + input * Time.fixedDeltaTime * speed;
 			Vector3 target = new Vector3(x, pos.y, pos.z);
-			transform.position = target;
+			// transform.position = target;
 			var data = new { x = target.x, y = target.y, z = target.z };
 
-			if (sendTimer > sendInterval)
-			{
-				ColyseusNetwork.Instance.Room.Send((int)MessageType.MOVE, data);
-
-				sendTimer = 0;
-			}
-			sendTimer += Time.deltaTime;
-			
+			ColyseusNetwork.Instance.Room.Send((int)MessageType.MOVE, data);
 		}
 
 
@@ -95,10 +88,7 @@ public class Marine : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (posTarget != Vector3.zero && Vector3.Distance(transform.position, posTarget) > 0.1f)
-		{
-			transform.position = Vector3.MoveTowards(transform.position, posTarget, speed*Time.fixedDeltaTime);
-		}
+		
 		
 	}
 
@@ -110,6 +100,9 @@ public class Marine : MonoBehaviour
 	public void SetPositionTarget(Vector3 pos)
 	{
 		posTarget = pos;
+		transform.position = pos;
+		Debug.LogError(pos);
+		// Vector3.Lerp(transform.position, pos, 0.5f * Time.deltaTime);
 	}
 
 	#endregion
