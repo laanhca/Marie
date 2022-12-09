@@ -2,9 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Colyseus;
-using Colyseus.Schema;
-using DemoObserver;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 public class ColyseusNetwork : MonoBehaviour
