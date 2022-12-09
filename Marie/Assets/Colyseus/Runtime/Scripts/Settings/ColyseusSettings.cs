@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,11 +65,12 @@ namespace Colyseus
                 if (_headersDictionary == null)
                 {
                     _headersDictionary = new Dictionary<string, string>();
-                    for (int i = 0; i < _requestHeaders.Length; ++i)
-                    {
-                        _headersDictionary.Add(_requestHeaders[i].name, _requestHeaders[i].value);
-                    }
-                }
+
+					for (int i = 0; _requestHeaders != null && i < _requestHeaders.Length; ++i)
+					{
+						_headersDictionary.Add(_requestHeaders[i].name, _requestHeaders[i].value);
+					}
+				}
 
                 return _headersDictionary;
             }
@@ -82,13 +83,8 @@ namespace Colyseus
         {
             get
             {
-                if (string.IsNullOrEmpty(colyseusServerPort) || colyseusServerPort.Equals(("80")))
-                {
-                    return (useSecureProtocol ? "wss" : "ws") + "://" + colyseusServerAddress;
-                }
-
-                return (useSecureProtocol ? "wss" : "ws") + "://" + colyseusServerAddress + ":" + colyseusServerPort;
-            }
+				return BuildWebSocketEndpoint();
+			}
         }
 
         /// <summary>
@@ -98,13 +94,8 @@ namespace Colyseus
         {
             get
             {
-                if (string.IsNullOrEmpty(colyseusServerPort) || colyseusServerPort.Equals(("80")))
-                {
-                    return (useSecureProtocol ? "https" : "http") + "://" + colyseusServerAddress;
-                }
-
-                return (useSecureProtocol ? "https" : "http") + "://" + colyseusServerAddress + ":" + colyseusServerPort;
-            }
+				return BuildWebRequestEndpoint();
+			}
         }
 
         /// <summary>
@@ -122,5 +113,56 @@ namespace Colyseus
 
             return clone;
         }
-    }
+
+        private string BuildWebRequestEndpoint()
+        {
+	        UriBuilder webRequestEndpointBuilder = new UriBuilder(GetBaseEndpoint(GetWebRequestEndpointScheme()));
+
+	        webRequestEndpointBuilder.Port = DetermineServerPort();
+
+	        return webRequestEndpointBuilder.ToString();
+        }
+
+        private string BuildWebSocketEndpoint()
+        {
+	        UriBuilder webSocketEndpointBuilder = new UriBuilder(GetBaseEndpoint(GetWebSocketEndpointScheme()));
+
+	        webSocketEndpointBuilder.Port = DetermineServerPort();
+
+	        return webSocketEndpointBuilder.ToString();
+        }
+
+        private string GetBaseEndpoint(string scheme)
+        {
+	        return $"{scheme}://{colyseusServerAddress}";
+        }
+
+        private string GetWebSocketEndpointScheme()
+        {
+	        return (useSecureProtocol ? "wss" : "ws");
+        }
+
+        private string GetWebRequestEndpointScheme()
+        {
+	        return (useSecureProtocol ? "https" : "http");
+        }
+
+        public int DetermineServerPort()
+        {
+	        if (ShouldIncludeServerPort() && int.TryParse(colyseusServerPort, out int serverPort))
+	        {
+		        return serverPort;
+	        }
+	        else
+	        {
+		        //Debug.LogError($"Get Web Request Endpoint - Error parsing server port: \"{colyseusServerPort}\"");
+		        return -1;
+	        }
+        }
+
+        private bool ShouldIncludeServerPort()
+        {
+	        return !string.IsNullOrEmpty(colyseusServerPort) && !string.Equals(colyseusServerPort, "80") && !string.Equals(colyseusServerPort, "443");
+        }
+	}
 }

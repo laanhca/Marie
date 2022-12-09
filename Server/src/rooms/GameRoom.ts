@@ -9,11 +9,11 @@ export class GameRoom extends Room<GameRoomState> {
 
 
     //handlers message from clients
-    this.onMessage(MessageType.INPUT, (client, message) => {
-        //
-        // handle "type" message
-        //
-      });
+    // this.onMessage(MessageType.INPUT, (client, message) => {
+    //     //
+    //     // handle "type" message
+    //     //
+    //   });
 
   }
 

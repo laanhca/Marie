@@ -28,22 +28,77 @@ namespace Colyseus
         /// </summary>
         public UriBuilder Endpoint;
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ColyseusClient" /> class with
-        ///     the specified Colyseus Game Server Server endpoint.
-        /// </summary>
-        /// <param name="endpoint">
-        ///     A <see cref="string" /> that represents the WebSocket URL to connect.
-        /// </param>
-        public ColyseusClient(string endpoint)
+		/// <summary>
+		/// The <see cref="ColyseusSettings"/> currently assigned to this client object
+		/// </summary>
+		private ColyseusSettings _colyseusSettings;
+
+		/// <summary>
+		///     Occurs when the <see cref="ColyseusClient" /> successfully connects to the <see cref="ColyseusRoom{T}" />.
+		/// </summary>
+		public static event ColyseusAddRoomEventHandler onAddRoom;
+
+		/// <summary>
+		/// The getter for the <see cref="ColyseusSettings"/> currently assigned to this client object
+		/// </summary>
+		public ColyseusSettings Settings
         {
-            Endpoint = new UriBuilder(new Uri(endpoint));
+	        get
+	        {
+		        return _colyseusSettings;
+	        }
+
+	        private set
+	        {
+		        _colyseusSettings = value;
+
+		        // Instantiate our ColyseusRequest object with the settings object
+				colyseusRequest = new ColyseusRequest(_colyseusSettings);
+	        }
         }
 
         /// <summary>
-        ///     Occurs when the <see cref="ColyseusClient" /> successfully connects to the <see cref="ColyseusRoom{T}" />.
-        /// </summary>
-        public static event ColyseusAddRoomEventHandler onAddRoom;
+		/// Object to perform <see cref="UnityEngine.Networking.UnityWebRequest"/>s to the server.
+		/// </summary>
+        public ColyseusRequest colyseusRequest;
+
+		/// <summary>
+		///     Initializes a new instance of the <see cref="ColyseusClient" /> class with
+		///     the specified Colyseus Game Server endpoint.
+		/// </summary>
+		/// <param name="endpoint">
+		///     A <see cref="string" /> that represents the WebSocket URL to connect.
+		/// </param>
+		public ColyseusClient(string endpoint)
+		{
+			Endpoint = new UriBuilder(endpoint);
+
+			// Create ColyseusSettings object to pass to the ColyseusRequest object
+			ColyseusSettings settings = ScriptableObject.CreateInstance<ColyseusSettings>();
+			settings.colyseusServerAddress = $"{Endpoint.Host}{Endpoint.Path}";
+			settings.colyseusServerPort = Endpoint.Port.ToString();
+			settings.useSecureProtocol = string.Equals(Endpoint.Scheme, "wss") || string.Equals(Endpoint.Scheme, "https");
+
+			Settings = settings;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ColyseusClient"/> class with
+		/// the specified Colyseus Settings object.
+		/// </summary>
+		/// <param name="settings">The settings you wish to use</param>
+		/// <param name="useWebSocketEndpoint">Determines whether the connection endpoint should use either web socket or http protocols.</param>
+		public ColyseusClient(ColyseusSettings settings, bool useWebSocketEndpoint)
+        {
+	        SetSettings(settings, useWebSocketEndpoint);
+        }
+
+		public void SetSettings(ColyseusSettings settings, bool useWebSocketEndpoint)
+		{
+			Endpoint = new UriBuilder(useWebSocketEndpoint ? settings.WebSocketEndpoint : settings.WebRequestEndpoint);
+
+			Settings = settings;
+		}
 
         /// <summary>
         ///     Join or Create a <see cref="ColyseusRoom{T}" />
@@ -214,7 +269,7 @@ namespace Colyseus
             }
 
             string json =
-                await ColyseusRequest.Request("GET", $"matchmake/{roomName}", null,
+                await colyseusRequest.Request("GET", $"matchmake/{roomName}", null,
                     headers); //req.downloadHandler.text;
             if (json.StartsWith("[", StringComparison.CurrentCulture))
             {
@@ -296,10 +351,10 @@ namespace Colyseus
                 headers = new Dictionary<string, string>();
             }
 
-            string json = await ColyseusRequest.Request("POST", $"matchmake/{method}/{roomName}", options, headers);
+            string json = await colyseusRequest.Request("POST", $"matchmake/{method}/{roomName}", options, headers);
             LSLog.Log($"Server Response: {json}");
             ColyseusMatchMakeResponse response =
-                JsonUtility.FromJson<ColyseusMatchMakeResponse>(json /*req.downloadHandler.text*/);
+                JsonUtility.FromJson<ColyseusMatchMakeResponse>(json);
             if (response == null)
             {
                 throw new Exception($"Error with request: {json}");
@@ -334,11 +389,8 @@ namespace Colyseus
                 list.Add(item.Key + "=" + (item.Value != null ? Convert.ToString(item.Value) : "null"));
             }
 
-            UriBuilder uriBuilder = new UriBuilder(Endpoint.Uri)
-            {
-                Path = path,
-                Query = string.Join("&", list.ToArray())
-            };
+            var uriBuilder = colyseusRequest.GetUriBuilder(path, string.Join("&", list.ToArray()));
+            uriBuilder.Scheme = Endpoint.Scheme;
 
             return new ColyseusConnection(uriBuilder.ToString(), headers);
         }

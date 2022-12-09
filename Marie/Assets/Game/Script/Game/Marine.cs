@@ -16,7 +16,7 @@ public class Marine : MonoBehaviour
 	/// Bullet prefab
 	[SerializeField] GameObject bulletPrefab = null;
 	// Text display name
-	[SerializeField] private TMP_Text nameText;
+	[SerializeField] private TextMeshPro nameText;
 	void OnValidate()
 	{
 		Common.Warning(gunTransform != null, "Marine is missing gunTransform !!");

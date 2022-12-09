@@ -1,8 +1,11 @@
+using UnityEngine.Scripting;
+
 namespace Colyseus.Schema
 {
     /// <summary>
     ///     <see cref="Schema" /> used for the purposes of reflection
     /// </summary>
+    [Preserve]
     public class ReflectionField : Schema
     {
         /// <summary>
@@ -18,12 +21,13 @@ namespace Colyseus.Schema
         public string type;
 
         [Type(2, "number")]
-        public float referencedType;
+        public float referencedType = -1;
     }
 
     /// <summary>
     ///     Mid level reflection container of an <see cref="ArraySchema{T}" />
     /// </summary>
+    [Preserve]
     public class ReflectionType : Schema
     {
         /// <summary>
@@ -42,6 +46,7 @@ namespace Colyseus.Schema
     /// <summary>
     ///     Top level reflection container for an <see cref="ArraySchema{T}" />
     /// </summary>
+    [Preserve]
     public class ColyseusReflection : Schema
     {
         /// <summary>
@@ -51,6 +56,6 @@ namespace Colyseus.Schema
         public ArraySchema<ReflectionType> types = new ArraySchema<ReflectionType>();
 
         [Type(1, "number")]
-        public float rootType;
+        public float rootType = -1;
     }
 }

@@ -68,6 +68,7 @@
      <Compile Include="Assets\Colyseus\Tests\Editor\ColyseusTests\Schema\InstanceSharingTypes\Position.cs" />
      <Compile Include="Assets\Colyseus\Tests\Editor\ColyseusTests\Schema\MapSchemaMoveNullifyType\State.cs" />
      <Compile Include="Assets\Colyseus\Tests\Editor\ColyseusTests\Schema\BackwardsForwards\PlayerV2.cs" />
+     <Compile Include="Assets\Colyseus\Tests\Editor\ColyseusTests\ColyseusRequestTest.cs" />
      <Folder Include="Assets\Colyseus\Tests\Editor\ColyseusTests\Schema\PrimitiveTypes" />
      <None Include="Assets\Colyseus\Tests\Editor\LucidSight.Editor.Tests.asmdef" />
      <Folder Include="Assets\Colyseus\Tests\Editor\ColyseusTests\Schema\FilteredTypes" />
