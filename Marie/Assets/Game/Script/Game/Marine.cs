@@ -25,7 +25,6 @@ public class Marine : MonoBehaviour
 	private float input;
 	[Range(0,5)]
 	[SerializeField] private float speed = 2f;
-	private Vector3 posTarget;
 	private float sendTimer = 0f;
 	private readonly float sendInterval = 50 / 1000f;
 
@@ -74,7 +73,7 @@ public class Marine : MonoBehaviour
 		if (input != 0)
 		{
 			Vector3 pos = transform.position;
-			var x = pos.x + input * Time.fixedDeltaTime * speed;
+			var x = input * Time.fixedDeltaTime * speed;
 			Vector3 target = new Vector3(x, pos.y, pos.z);
 			// transform.position = target;
 			var data = new { x = target.x, y = target.y, z = target.z };
@@ -96,14 +95,7 @@ public class Marine : MonoBehaviour
 	{
 		nameText.text = name;
 	}
-
-	public void SetPositionTarget(Vector3 pos)
-	{
-		posTarget = pos;
-		transform.position = pos;
-		Debug.LogError(pos);
-		// Vector3.Lerp(transform.position, pos, 0.5f * Time.deltaTime);
-	}
+	
 
 	#endregion
 }

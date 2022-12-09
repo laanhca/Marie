@@ -33,6 +33,6 @@ public class Gameplay : MonoBehaviour
         Marine marine = _players[sessionId];
         Vector3 pos = marine.gameObject.transform.position;
         Vector3 target = new Vector3(x, pos.y, pos.z);
-        marine.SetPositionTarget(target);
+        marine.gameObject.transform.position = target;
     }
 }

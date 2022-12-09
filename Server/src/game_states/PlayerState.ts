@@ -13,7 +13,7 @@ export class PlayerState extends Schema{
         this.dir = true;
     }
     move(data: any) {
-        this.x = data.x;
+        this.x += data.x;
         console.log(this.x);
     }
 }
