@@ -7,20 +7,23 @@
 
 using Colyseus.Schema;
 
-public partial class PlayerState : Schema {
+public partial class HelicopterState : Schema {
 	[Type(0, "string")]
-	public string name = default(string);
+	public string id = default(string);
 
 	[Type(1, "number")]
-	public float x = default(float);
+	public float health = default(float);
 
 	[Type(2, "number")]
+	public float x = default(float);
+
+	[Type(3, "number")]
 	public float y = default(float);
 
-	[Type(3, "boolean")]
+	[Type(4, "boolean")]
 	public bool dir = default(bool);
 
-	[Type(4, "ref", typeof(GunState))]
-	public GunState gun = new GunState();
+	[Type(5, "map", typeof(MapSchema<string>), "string")]
+	public MapSchema<string> data = new MapSchema<string>();
 }
 

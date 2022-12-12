@@ -1,6 +1,10 @@
 namespace Game.ColyseusSDK
 {
    public enum MessageType {
-        MOVE = 0,
+        Move = 0,
+        Spawn = 1,
+        TakeDame = 2,
+        Gun = 3,
+        Shot = 4,
     }
 }

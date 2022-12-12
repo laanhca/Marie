@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using DemoObserver;
+using Game.ColyseusSDK;
+using Random = UnityEngine.Random;
 
 public class Helicopter : MonoBehaviour
 {
@@ -10,6 +13,8 @@ public class Helicopter : MonoBehaviour
 	[SerializeField] Vector2 speedRange = Vector2.zero;
 	[SerializeField] GameObject explodeFxPrefab = null;
 	[SerializeField] Vector2 limitXrange = Vector2.zero;
+
+	public string id; 
 
 	// --- fields
 	Rigidbody2D _myRigidbody;
@@ -79,18 +84,29 @@ public class Helicopter : MonoBehaviour
 	/// This function will be call from BUllet script, when Collision occur.
 	/// Reduce current HP, if HP lower than zero, then destroy this heli
 	/// </summary>
-	public void TakeDamage()
+	public async  void TakeDamage()
 	{
-		_currentHP--;
-		if (_currentHP <= 0)
-		{
+		// _currentHP--;
+		// if (_currentHP <= 0)
+		// {
+		// 	// create Fx
+		// 	Instantiate(explodeFxPrefab, transform.position, Quaternion.identity);
+		// 	// raise Dead event 
+		// 	this.PostEvent(EventID.OnHelicopterDead);
+		// 	// destroy heli
+		// 	Destroy(gameObject);
+		// }
+		await ColyseusNetwork.Instance.Room.Send((int)MessageType.TakeDame, new { heliId = this.id });
+	}
+
+	public void OnDead()
+	{
 			// create Fx
 			Instantiate(explodeFxPrefab, transform.position, Quaternion.identity);
 			// raise Dead event 
 			this.PostEvent(EventID.OnHelicopterDead);
 			// destroy heli
 			Destroy(gameObject);
-		}
 	}
 
 	#endregion

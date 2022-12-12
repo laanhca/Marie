@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LucidSight.Runtime.ColyseusSDK", "LucidSight.Runtime.ColyseusSDK.csproj", "{4b1a5d56-b529-3621-b2b6-9e0c6cce81b0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{d100ff4b-1f15-e926-141b-de84b67a9f3b}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LucidSight.Editor.Tests", "LucidSight.Editor.Tests.csproj", "{3a464162-09ed-883a-9fe1-f65dce0e111b}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{d100ff4b-1f15-e926-141b-de84b67a9f3b}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,10 +18,10 @@ Global
 		{56aefbe2-92cc-818c-f732-ec66aa7ab0d1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4b1a5d56-b529-3621-b2b6-9e0c6cce81b0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4b1a5d56-b529-3621-b2b6-9e0c6cce81b0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{d100ff4b-1f15-e926-141b-de84b67a9f3b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{d100ff4b-1f15-e926-141b-de84b67a9f3b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3a464162-09ed-883a-9fe1-f65dce0e111b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3a464162-09ed-883a-9fe1-f65dce0e111b}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d100ff4b-1f15-e926-141b-de84b67a9f3b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d100ff4b-1f15-e926-141b-de84b67a9f3b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

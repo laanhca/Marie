@@ -57,15 +57,13 @@ public class Marine : MonoBehaviour
 		var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = gunTransform.position.z;//make it same z coor with gunTrans, use for calculate direction
 		var direction = mousePos - gunTransform.position;
-		gunTransform.up = direction;//rotate gun follow above direction
+		ColyseusNetwork.Instance.Room.Send((int)MessageType.Gun, direction);
+		// gunTransform.up = direction;//rotate gun follow above direction
 
 		// fire
 		if (Input.GetMouseButtonDown(0))//left mouse
 		{
-			// raise shoot event
-			this.PostEvent(EventID.OnMarineShoot);
-			// create bullet
-			Instantiate(bulletPrefab, barrelPosition.position, gunTransform.rotation);
+			ColyseusNetwork.Instance.Room.Send((int)MessageType.Shot);
 		}
 		
 		//move
@@ -78,11 +76,24 @@ public class Marine : MonoBehaviour
 			// transform.position = target;
 			var data = new { x = target.x, y = target.y, z = target.z };
 
-			ColyseusNetwork.Instance.Room.Send((int)MessageType.MOVE, data);
+			ColyseusNetwork.Instance.Room.Send((int)MessageType.Move, data);
 		}
 
 
 		
+	}
+
+	public void UpdateGun(Vector3 direction)
+	{
+		gunTransform.up = direction;//rotate gun follow above direction
+	}
+
+	public void Shot()
+	{
+		// raise shoot event
+		this.PostEvent(EventID.OnMarineShoot);
+		// create bullet
+		Instantiate(bulletPrefab, barrelPosition.position, gunTransform.rotation);
 	}
 
 	private void FixedUpdate()

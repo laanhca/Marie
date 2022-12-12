@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DemoObserver;
+using Game.ColyseusSDK;
 
 /// <summary>
 /// Helicopter spawner. Generate helicopter on scene
@@ -13,6 +14,8 @@ public class HelicopterSpawner : MonoBehaviour
 	[SerializeField] Transform spawnPosition = null;
 	[SerializeField] float randomYposition = 2f;
 	[SerializeField] float spawnRate = 2f;
+	
+	private int currentId = 0;
 
 	void OnValidate()
 	{
@@ -50,6 +53,6 @@ public class HelicopterSpawner : MonoBehaviour
 			Instantiate(helicopterPrefab, randomSpawnPosition, Quaternion.identity);
 		}
 	}
-
+	
 	#endregion
 }

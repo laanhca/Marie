@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\LucidSight.Runtime.ColyseusSDK\</OutputPath>
-    <DefineConstants>UNITY_2021_3_14;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_14;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -41,115 +41,115 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusExceptions.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Managers\ColyseusManager.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\WebSocket\WebSocket.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\EndianBitConverter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\DoubleConverter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusDecoder.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Properties\AssemblyInfo.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\MapSchema.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusMessageHandler.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusExtensionMethods.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusProtocol.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusReferenceTracker.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\LittleEndianBitConverter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusHttpUtility.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\ColyseusReflection.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusMatchMakeResponse.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusUnityWebRequestAwaiter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Schema.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\ColyseusSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\Endianness.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusArrayUtils.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusContext.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\ColyseusCustomType.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusRoomAvailable.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusConnection.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusClient.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\BigEndianBitConverter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusObjectExtensions.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusRoom.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusHttpQSCollection.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\ArraySchema.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\ColyseusNoneSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusEncoder.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Settings\ColyseusSettings.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\ColyseusRequest.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\ColyseusSchemaSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\TimeSpanSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Vector2Serializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\TypeSerializerAttribute.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\UriSerializer.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackType.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonTextReader.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\EndianBitConverter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IndexedDictionary.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\EnumNumberSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\UnknownMsgPackFormatException.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonWriter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackExtensionType.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\FieldDescription.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Vector3Serializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Matrix4x4Serializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\TypeDescription.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackTimestamp.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackWriter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\PrimitiveTypeSerializer.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\ArrayExtensions.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackExtensionTypeHandler.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\BoundsSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\ReflectionExtentions.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStringReader.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\PropertyDescription.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\MemberDescription.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\SerializationOptions.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\BigEndianBitConverter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\EnumSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonUtils.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\MetadataReflection.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\MsgPackExtensionTypeSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\StreamSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\DateTimeOffsetSerializer.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\GuidSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IValueInfo.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\DefaultMsgPackExtensionTypeHandler.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\DictionaryEntrySerializer.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStreamReader.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackReader.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStringBuilderReader.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Vector4Serializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonTextWriter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\PathSegment.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStreamWriter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\LittleEndianBitConverter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\DictionarySerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonSerializationException.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\Endianness.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\BinarySerializer.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\SerializationContext.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\TypeSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IJsonWriter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonReader.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\DataMemberDescription.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\RectSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonMember.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonReaderExtentions.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\ArraySerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusErrorCode.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\QuaternionSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusHttpQSCollection.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\VersionSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStringBuilderWriter.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\GenerateTypeSerializerAttribute.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\MsgPackTimestampSerializer.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\ObjectSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\ColyseusNoneSerializer.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MsgPack.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\TypeSerializerAttribute.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\PropertyDescription.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonTextWriter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\BigEndianBitConverter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\DataMemberDescription.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusRoom.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\UnknownMsgPackExtentionTypeException.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Json.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonToken.cs" />
-     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IJsonReader.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\ColyseusSchemaSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IndexedDictionary.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackExtensionType.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackReader.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\ColyseusCustomType.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusConnection.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonReader.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\ColyseusRequest.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\FieldDescription.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\BigEndianBitConverter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonUtils.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\MsgPackExtensionTypeSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStringBuilderReader.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusErrorCode.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\DateTimeSerializer.cs" />
      <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonWriterExtentions.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\UnknownMsgPackFormatException.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\MemberDescription.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\LittleEndianBitConverter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\BinarySerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusDecoder.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Vector3Serializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\PrimitiveTypeSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\LittleEndianBitConverter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IJsonWriter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\MsgPackTimestampSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\MapSchema.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusExtensionMethods.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\EnumSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\StreamSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\DictionaryEntrySerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\Endianness.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusObjectExtensions.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\BoundsSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\ColyseusReflection.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\DateTimeOffsetSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\PathSegment.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\ColyseusSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Managers\ColyseusManager.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\DoubleConverter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\EnumNumberSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackWriter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\DictionarySerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\GenerateTypeSerializerAttribute.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\TimeSpanSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Vector2Serializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Conversion\EndianBitConverter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Matrix4x4Serializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackTimestamp.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IValueInfo.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusClient.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\ArraySerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\QuaternionSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonToken.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\Vector4Serializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStringBuilderWriter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types\ArraySchema.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\ObjectSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusContext.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Serializers\RectSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Json.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\IJsonReader.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\MsgPackExtensionTypeHandler.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusHttpUtility.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusMatchMakeResponse.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Schema.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusArrayUtils.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusRoomAvailable.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonReaderExtentions.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusExceptions.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonTextReader.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonWriter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\ReflectionExtentions.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Models\ColyseusProtocol.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStringReader.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\SerializationOptions.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusReferenceTracker.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonStreamWriter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonSerializationException.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Settings\ColyseusSettings.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\EndianBitConverter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Room\ColyseusMessageHandler.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Utils\ColyseusUnityWebRequestAwaiter.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\ColyseusEncoder.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\WebSocket\WebSocket.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\Properties\AssemblyInfo.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata\TypeDescription.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\DefaultMsgPackExtensionTypeHandler.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\MessagePack\Endianness.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\TypeSerializer.cs" />
+     <Compile Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\JsonMember.cs" />
      <Folder Include="Assets\Colyseus\Runtime\Scripts\Serializer\Schema\Types" />
      <Folder Include="Assets\Colyseus\Runtime\Editor Default Resources" />
      <Folder Include="Assets\Colyseus\Runtime\GameDevWare.Serialization\Metadata" />
@@ -197,12 +197,6 @@
      </Reference>
      <Reference Include="UnityEngine.ClothModule">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.ClusterInputModule">
-     <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterInputModule.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.ClusterRendererModule">
-     <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterRendererModule.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.CoreModule">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
@@ -363,9 +357,6 @@
      <Reference Include="UnityEngine.VideoModule">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.VirtualTexturingModule">
-     <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.VirtualTexturingModule.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.WindModule">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.WindModule.dll</HintPath>
      </Reference>
@@ -444,6 +435,9 @@
      <Reference Include="unityplastic">
      <HintPath>C:\projects\unity\Marie\Marie\Library\PackageCache\com.unity.collab-proxy@1.17.6\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
      </Reference>
+     <Reference Include="LucidSightTools">
+     <HintPath>C:\projects\unity\Marie\Marie\Assets\Colyseus\Runtime\Scripts\Tools\LucidSightTools.dll</HintPath>
+     </Reference>
      <Reference Include="log4netPlastic">
      <HintPath>C:\projects\unity\Marie\Marie\Library\PackageCache\com.unity.collab-proxy@1.17.6\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
      </Reference>
@@ -452,9 +446,6 @@
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>C:\projects\unity\Marie\Marie\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="LucidSightTools">
-     <HintPath>C:\projects\unity\Marie\Marie\Assets\Colyseus\Runtime\Scripts\Tools\LucidSightTools.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
