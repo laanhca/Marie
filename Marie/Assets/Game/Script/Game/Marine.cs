@@ -85,7 +85,6 @@ public class Marine : MonoBehaviour
 		entityState.timestamp = _state.timestamp;
 		entityState.pos = pos;
 		proxyStates[0] = entityState;
-		Debug.LogError(pos.x);
 	}
 
 	#endregion
@@ -119,9 +118,12 @@ public class Marine : MonoBehaviour
 		float serverTime = ColyseusNetwork.Instance.Room.State.serverTime;
 		
 		float interpolationTime = serverTime - (float)interpolationBackTimeMs;
+		
+		
 		if (proxyStates[0].timestamp >  interpolationTime)
 		{
-			float delFactor = serverTime > proxyStates[0].timestamp ? (float)(serverTime - proxyStates[0].timestamp) * 0.2f : 0f;
+			Debug.LogError((float)(serverTime - proxyStates[0].timestamp));
+			float delFactor = serverTime > proxyStates[0].timestamp ? (float)(serverTime - proxyStates[0].timestamp)/1000f : 0f;
 
 			float distance = Vector3.Distance(transform.position, proxyStates[0].pos);
 			if (distance < 5)

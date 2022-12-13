@@ -7,7 +7,7 @@ public class InputHanlder : MonoBehaviour
 	private float input;
 
 	[Range(0,5)]
-	[SerializeField] private float speed = 2;
+	[SerializeField] private float speed = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +39,10 @@ public class InputHanlder : MonoBehaviour
         input =Input.GetAxisRaw("Horizontal");
         if (input != 0)
         {
-        	Vector3 pos = transform.position;
-        	var x = pos.x + input * Time.fixedDeltaTime * speed;
-        	Vector3 target = new Vector3(x, pos.y, pos.z);
-        	transform.position = target;
-        	
+	        Vector3 target = transform.position;
+	        target.x = target.x +  input * speed;
+	        transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
+
         }
     }
 }
