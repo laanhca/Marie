@@ -14,6 +14,7 @@ public class Marine : MonoBehaviour
 	#region Init, config
 
 	[Header("Config marine")]
+	[Space]
 	/// Will rotate gun follow mouse position on screen
 	[SerializeField] Transform gunTransform = null;
 	/// The barrel position. Bullet will spawn at this position
@@ -26,16 +27,21 @@ public class Marine : MonoBehaviour
 	[SerializeField]
 	private float updateTimer = 0.005f;
 	private float currentUpdateTime = 0.0f;
-
+	
+	
 	//Movement Sync
-	private InputHanlder _inputHanlder;
+	[Header("Movement Sync")]
+	[Space]
 	[SerializeField]
 	public double interpolationBackTimeMs = 200f;
 	public double extrapolationLimitMs = 500f;
 	public float positionLerpSpeed = 2f;
 	public Vector3 veloc = Vector3.zero;
-	
+	private InputHanlder _inputHanlder;
 
+	//Gun
+	private Gun _gun;
+	
 	private bool isMine = false;
 	private PlayerState _state;
 	private PlayerState _localUpdatedState;
@@ -59,8 +65,21 @@ public class Marine : MonoBehaviour
 
 	void Awake()
 	{
-
+		// cache component
 		_inputHanlder = GetComponent<InputHanlder>();
+		_gun = GetComponentInChildren<Gun>();
+		
+		//regiser callback
+		_inputHanlder.OnGunRotate += OnGunRotate;
+		_inputHanlder.OnShot += OnShot;
+	}
+
+	private void OnGunRotate(Vector3 mousePos)
+	{
+		mousePos.z = gunTransform.position.z;//make it same z coor with gunTrans, use for calculate direction
+		var direction = mousePos - gunTransform.position;
+		ColyseusNetwork.Instance.Room.Send((int)MessageType.Gun, direction);
+		gunTransform.up = direction;//rotate gun follow above direction
 	}
 
 	public void Init(PlayerState state, bool isPlayer)
@@ -196,10 +215,10 @@ public class Marine : MonoBehaviour
 		gunTransform.up = direction;//rotate gun follow above direction
 	}
 
-	public void Shot()
+	public void OnShot()
 	{
 		// raise shoot event
-		this.PostEvent(EventID.OnMarineShoot);
+		// this.PostEvent(EventID.OnMarineShoot);
 		// create bullet
 		Instantiate(bulletPrefab, barrelPosition.position, gunTransform.rotation);
 	}
@@ -209,7 +228,13 @@ public class Marine : MonoBehaviour
 	{
 		nameText.text = name;
 	}
-	
+
+	private void OnDestroy()
+	{
+		_inputHanlder.OnGunRotate -= OnGunRotate;
+		_inputHanlder.OnShot -= OnShot;
+
+	}
 
 	#endregion
 }

@@ -68,6 +68,6 @@ public class Gameplay : MonoBehaviour
     public void Shot(string sessionId)
     {
         Marine marine = _players[sessionId];
-        marine.Shot();
+        // marine.Shot();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class InputHanlder : MonoBehaviour
 {
 	private float input;
 
+	public Action<Vector3> OnGunRotate;
+	public Action OnShot;
 	[Range(0,5)]
 	[SerializeField] private float speed = 5;
     // Start is called before the first frame update
@@ -18,21 +21,18 @@ public class InputHanlder : MonoBehaviour
     void Update()
     {
         // rotate gun
-        // var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        OnGunRotate.Invoke(mousePos);
         // mousePos.z = gunTransform.position.z;//make it same z coor with gunTrans, use for calculate direction
         // var direction = mousePos - gunTransform.position;
         // ColyseusNetwork.Instance.Room.Send((int)MessageType.Gun, direction);
         // gunTransform.up = direction;//rotate gun follow above direction
 
         // fire
-        // if (Input.GetMouseButtonDown(0))//left mouse
-        // {
-        // 	if (sendTimer > sendInterval)
-        // 	{
-        // 		ColyseusNetwork.Instance.Room.Send((int)MessageType.Shot);
-        // 		sendTimer = 0;
-        // 	}
-        // }
+        if (Input.GetMouseButtonDown(0))//left mouse
+        {
+        	OnShot.Invoke();
+        }
 		
 		
         //move
