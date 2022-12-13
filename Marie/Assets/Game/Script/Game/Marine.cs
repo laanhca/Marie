@@ -124,8 +124,7 @@ public class Marine : MonoBehaviour
 		
 		if (proxyStates[0].timestamp >  interpolationTime)
 		{
-			Debug.LogError((float)(serverTime - proxyStates[0].timestamp));
-			float delFactor = serverTime > proxyStates[0].timestamp ? (float)(serverTime - proxyStates[0].timestamp) * 0.2f : 0f;
+			float delFactor = serverTime > proxyStates[0].timestamp ? (float)(serverTime - proxyStates[0].timestamp) / 1000f : 0f;
 
 			float distance = Vector3.Distance(transform.position, proxyStates[0].pos);
 			if (distance < 5)
@@ -134,7 +133,7 @@ public class Marine : MonoBehaviour
 					transform.position, 
 					proxyStates[0].pos, 
 					ref veloc, 
-					positionLerpSpeed * Time.deltaTime
+					(positionLerpSpeed + delFactor) * Time.deltaTime
 					);
 			}
 			else
