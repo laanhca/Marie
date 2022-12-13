@@ -40,7 +40,7 @@ public class InputHanlder : MonoBehaviour
         if (input != 0)
         {
 	        Vector3 target = transform.position;
-	        target.x = target.x +  input * speed;
+	        target.x +=  input * speed ;
 	        transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
 
         }

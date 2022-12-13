@@ -24,7 +24,7 @@ public class Marine : MonoBehaviour
 	[SerializeField] private TextMeshPro nameText;
 	
 	[SerializeField]
-	private float updateTimer = 0.5f;
+	private float updateTimer = 0.005f;
 	private float currentUpdateTime = 0.0f;
 
 	//Movement Sync
@@ -33,6 +33,8 @@ public class Marine : MonoBehaviour
 	public double interpolationBackTimeMs = 200f;
 	public double extrapolationLimitMs = 500f;
 	public float positionLerpSpeed = 2f;
+	public Vector3 veloc = Vector3.zero;
+	
 
 	private bool isMine = false;
 	private PlayerState _state;
@@ -123,15 +125,17 @@ public class Marine : MonoBehaviour
 		if (proxyStates[0].timestamp >  interpolationTime)
 		{
 			Debug.LogError((float)(serverTime - proxyStates[0].timestamp));
-			float delFactor = serverTime > proxyStates[0].timestamp ? (float)(serverTime - proxyStates[0].timestamp)/1000f : 0f;
+			float delFactor = serverTime > proxyStates[0].timestamp ? (float)(serverTime - proxyStates[0].timestamp) * 0.2f : 0f;
 
 			float distance = Vector3.Distance(transform.position, proxyStates[0].pos);
 			if (distance < 5)
 			{
-				transform.position = Vector3.Lerp(
+				transform.position = Vector3.SmoothDamp(
 					transform.position, 
-					proxyStates[0].pos,
-					Time.fixedDeltaTime * (positionLerpSpeed + delFactor));
+					proxyStates[0].pos, 
+					ref veloc, 
+					positionLerpSpeed * Time.deltaTime
+					);
 			}
 			else
 			{
