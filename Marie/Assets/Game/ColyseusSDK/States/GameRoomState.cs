@@ -13,5 +13,8 @@ public partial class GameRoomState : Schema {
 
 	[Type(1, "map", typeof(MapSchema<HelicopterState>))]
 	public MapSchema<HelicopterState> helicopters = new MapSchema<HelicopterState>();
+
+	[Type(2, "number")]
+	public float serverTime = default(float);
 }
 

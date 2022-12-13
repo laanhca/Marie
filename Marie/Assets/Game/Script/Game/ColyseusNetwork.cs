@@ -101,42 +101,15 @@ public class ColyseusNetwork : MonoBehaviour
     private void OnAddPlayer(string sessionId, PlayerState playerState)
     {
         _gameplay.AddPlayer(sessionId, playerState);
-        playerState.OnChange += (changes) =>
-        {
-            OnChangePlayer(changes, sessionId);
-        };
-        playerState.gun.OnChange += changes =>
-        {
-            foreach (var change in changes)
-            {
-                Vector3 dir = Vector3.zero;
-                
-                if (change.Field == "x")
-                {
-                     dir = new Vector3((float)change.Value, playerState.gun.y, playerState.gun.z);
-                }
-                if (change.Field == "y")
-                {
-                     dir = new Vector3(playerState.gun.x, (float)change.Value, playerState.gun.z);
-                }
-                if (change.Field == "z")
-                {
-                     dir = new Vector3(playerState.gun.x, playerState.gun.y, (float)change.Value);
-                }
-                _gameplay.UpdateGun(sessionId, dir);
-            }
-        };
+        
+        
 
     }
 
-    private void OnChangePlayer(List<DataChange> changes, string sessionId)
+    
+
+    private void OnDestroy()
     {
-        foreach (var change in changes)
-        {
-            if (change.Field == "x")
-            {
-                _gameplay.OnPlayerMove(sessionId, (float)change.Value);
-            }
-        }
+        _room.Leave(true);
     }
 }

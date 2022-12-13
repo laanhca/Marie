@@ -6,6 +6,8 @@ export class GameRoomState extends Schema{
  
     @type({map: PlayerState}) players = new MapSchema<PlayerState>();
     @type({map: HelicopterState}) helicopters = new MapSchema<HelicopterState>();
+    @type("number") serverTime: number = 0.0;
+
     
     onAddPlayer(client: Client){
         const player: PlayerState = new PlayerState(0, -4.63, client.sessionId);
@@ -33,20 +35,20 @@ export class GameRoomState extends Schema{
     //     this.helicopters.get(data.heliId).move(data.x);
     // }
 
-    takeDame(data: any){
-        const heli:HelicopterState =  this.helicopters.get(data.heliId);
 
-        if(heli){
-            heli.health-=1;
-            if(heli.health<= 0) this.onRemoveHelicopter(data);
-        }
-    }
 
-    updateGun(client: Client, data: any){
+ 
+
+    updatePlayer(client: Client, changeSet: any){
+        console.log(changeSet);
         const player = this.players.get(client.sessionId);
-        player.gun.x = data.x;
-        player.gun.y = data.y;
-        player.gun.z = data.z;
+        for (let i = 0; i < changeSet.length; i += 2) {
+            const property = changeSet[i];
+            let updateValue = changeSet[i + 1];
+            (player as any)[property] = updateValue;
+            
+          }
+          player.timestamp = this.serverTime;
     }
 
     

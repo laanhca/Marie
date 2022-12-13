@@ -6,5 +6,6 @@ namespace Game.ColyseusSDK
         TakeDame = 2,
         Gun = 3,
         Shot = 4,
+        UpdatePlayer = 5,
     }
 }

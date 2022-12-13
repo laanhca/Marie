@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 /// <summary>
 /// This Object include all entities of room
@@ -18,9 +19,13 @@ public class Gameplay : MonoBehaviour
         Marine marine = Instantiate(mariePrefab, this.transform).GetComponent<Marine>();
         marine.transform.position = new Vector3(playerState.x, playerState.y);
         marine.SetName(playerState.name);
+        marine.Init(playerState, sessionId == ColyseusNetwork.Instance.Room.SessionId);
         
         //add to list player
-        _players.Add(sessionId, marine);
+        if (!_players.ContainsKey(sessionId))
+        {
+            _players.Add(sessionId, marine);
+        }
     }
 
     public void RemovePlayer(string sessionId)

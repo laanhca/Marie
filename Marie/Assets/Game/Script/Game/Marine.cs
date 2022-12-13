@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Colyseus.Schema;
 using DemoObserver;
 using TMPro;
 using UnityEditor;
@@ -21,28 +23,69 @@ public class Marine : MonoBehaviour
 	// Text display name
 	[SerializeField] private TextMeshPro nameText;
 	
-	//Character move
-	private float input;
-	[Range(0,5)]
-	[SerializeField] private float speed = 2f;
-	private float sendTimer = 0f;
-	private readonly float sendInterval = 50 / 1000f;
+	[SerializeField]
+	private float updateTimer = 0.5f;
+	private float currentUpdateTime = 0.0f;
 
-	void OnValidate()
+	//Movement Sync
+	private InputHanlder _inputHanlder;
+	[SerializeField]
+	public double interpolationBackTimeMs = 200f;
+	public double extrapolationLimitMs = 500f;
+	public float positionLerpSpeed = 2f;
+
+	private bool isMine = false;
+	private PlayerState _state;
+	private PlayerState _localUpdatedState;
+	private PlayerState _prevState;
+	
+	
+	
+	
+	// cache 20 state from server
+	[System.Serializable]
+	private struct EntityState
 	{
-		Common.Warning(gunTransform != null, "Marine is missing gunTransform !!");
-		Common.Warning(barrelPosition != null, "Marine is missing barrelPosition !!");
-		Common.Warning(barrelPosition != null, "Marine is missing bulletPrefab !!");
-		Common.Warning(nameText != null, "Marine is missing nameText !!");
+		public double timestamp;
+		public Vector3 pos;
+
 	}
+
+	private EntityState[] proxyStates = new EntityState[20];
+	
+
 
 	void Awake()
 	{
-		// if the config data is missing, then disable this script
-		if (gunTransform == null || barrelPosition == null || bulletPrefab == null || nameText == null)
+
+		_inputHanlder = GetComponent<InputHanlder>();
+	}
+
+	public void Init(PlayerState state, bool isPlayer)
+	{
+		_state = state;
+		isMine = isPlayer;
+		if (!isMine) _inputHanlder.enabled = false;
+
+		_state.OnChange += OnStateChange;
+	}
+
+	private void OnStateChange(List<DataChange> changes)
+	{
+		if (!isMine)
 		{
-			this.enabled = false;
+			SyncViewWithServer();
 		}
+	}
+
+	private void SyncViewWithServer()
+	{
+		Vector3 pos = new Vector3(_state.x, _state.y, 0);
+		EntityState entityState = new EntityState();
+		entityState.timestamp = _state.timestamp;
+		entityState.pos = pos;
+		proxyStates[0] = entityState;
+		Debug.LogError(pos.x);
 	}
 
 	#endregion
@@ -51,38 +94,98 @@ public class Marine : MonoBehaviour
 
 	#region Working
 
-	void Update ()
+	private void FixedUpdate()
 	{
-		// rotate gun
-		var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		mousePos.z = gunTransform.position.z;//make it same z coor with gunTrans, use for calculate direction
-		var direction = mousePos - gunTransform.position;
-		ColyseusNetwork.Instance.Room.Send((int)MessageType.Gun, direction);
-		// gunTransform.up = direction;//rotate gun follow above direction
-
-		// fire
-		if (Input.GetMouseButtonDown(0))//left mouse
+		if (isMine)
 		{
-			ColyseusNetwork.Instance.Room.Send((int)MessageType.Shot);
+			if (currentUpdateTime > updateTimer)
+			{
+				currentUpdateTime = 0;
+				SyncServerWithView();
+			}
+			else
+			{
+				currentUpdateTime += Time.fixedDeltaTime;
+			}
 		}
-		
-		//move
-		input =Input.GetAxisRaw("Horizontal");
-		if (input != 0)
+		else
 		{
-			Vector3 pos = transform.position;
-			var x = input * Time.fixedDeltaTime * speed;
-			Vector3 target = new Vector3(x, pos.y, pos.z);
-			// transform.position = target;
-			var data = new { x = target.x, y = target.y, z = target.z };
-
-			ColyseusNetwork.Instance.Room.Send((int)MessageType.Move, data);
+			ProcessSyncView();
 		}
-
-
-		
 	}
 
+	private void ProcessSyncView()
+	{
+		float serverTime = ColyseusNetwork.Instance.Room.State.serverTime;
+		
+		float interpolationTime = serverTime - (float)interpolationBackTimeMs;
+		if (proxyStates[0].timestamp >  interpolationTime)
+		{
+			float delFactor = serverTime > proxyStates[0].timestamp ? (float)(serverTime - proxyStates[0].timestamp) * 0.2f : 0f;
+
+			float distance = Vector3.Distance(transform.position, proxyStates[0].pos);
+			if (distance < 5)
+			{
+				transform.position = Vector3.Lerp(
+					transform.position, 
+					proxyStates[0].pos,
+					Time.fixedDeltaTime * (positionLerpSpeed + delFactor));
+			}
+			else
+			{
+				transform.position = proxyStates[0].pos;
+			}
+			
+				
+		}
+		else
+		{
+			float extrapolationLength = (float)(interpolationTime - proxyStates[0].timestamp);
+			// Don't extrapolate for more than 500 ms, you would need to do that carefully
+			if (extrapolationLength < extrapolationLimitMs / 1000f)
+			{
+				transform.position = proxyStates[0].pos;
+			}
+		}
+	}
+
+	private void SyncServerWithView()
+	{
+		_prevState = _state.Clone();
+		
+		Vector3 pos = transform.position;
+		_state.x = (float)System.Math.Round((decimal)pos.x, 4);
+
+		////No need to update again if last sent state == current view modified state
+		if (_localUpdatedState != null)
+		{
+			List<PlayerStateChange> changesLocal = PlayerStateChange.ComPare(_localUpdatedState, _state);
+			if (changesLocal.Count == 0 || (changesLocal.Count ==1 && changesLocal[0].Name == "timestamp"))
+			{
+				return;
+			}
+		}
+		
+		
+		List<PlayerStateChange> changes = PlayerStateChange.ComPare(_prevState, _state);
+		//Transform updated local sent state to server
+		if (changes.Count > 0)
+		{
+			//Create Change Set Array for NetSend
+			object[] changeSet = new object[(changes.Count * 2)];
+			int saveIndex = 0;
+			for (int i = 0; i < changes.Count; i++)
+			{
+				changeSet[saveIndex] = changes[i].Name;
+				changeSet[saveIndex + 1] = changes[i].NewValue;
+				saveIndex += 2;
+			}
+			_localUpdatedState = _state.Clone();
+			ColyseusNetwork.Instance.Room.Send((int)MessageType.UpdatePlayer, changeSet);
+
+		}
+	}
+	
 	public void UpdateGun(Vector3 direction)
 	{
 		gunTransform.up = direction;//rotate gun follow above direction
@@ -96,11 +199,6 @@ public class Marine : MonoBehaviour
 		Instantiate(bulletPrefab, barrelPosition.position, gunTransform.rotation);
 	}
 
-	private void FixedUpdate()
-	{
-		
-		
-	}
 
 	public void SetName(string name)
 	{

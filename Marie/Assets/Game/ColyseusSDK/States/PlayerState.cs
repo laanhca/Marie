@@ -20,7 +20,7 @@ public partial class PlayerState : Schema {
 	[Type(3, "boolean")]
 	public bool dir = default(bool);
 
-	[Type(4, "ref", typeof(GunState))]
-	public GunState gun = new GunState();
+	[Type(4, "number")]
+	public float timestamp = default(float);
 }
 

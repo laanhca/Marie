@@ -9,41 +9,31 @@ enum MessageType {
   TAKE_DAME = 2,
   GUN = 3,
   SHOT = 4,
+  UpdatePlayer = 5,
 }
 
 export class GameRoom extends Room<GameRoomState> {
 
-  spawnRate: number = 2000;
 
   onCreate (options: any) {
     this.setState(new GameRoomState());
 
+    // Set the frequency of the patch rate
+    this.setPatchRate(50);
+
+    // Set the Simulation Interval callback
+    this.setSimulationInterval(dt => {
+      this.state.serverTime += dt;
+    });
     // can init map here
 
-    //spawn heli
-    const heliSpawner = new HeliSpawner(4);
-    this.clock.setInterval(()=>{
-      const heli: HelicopterState = heliSpawner.spawnHeli();
-    this.state.onAddHelicopter(heli);
-    }, this.spawnRate);
+    //custom logic
+    this.customLogic();
 
 
-    //handlers message from clients
-    this.onMessage(MessageType.MOVE, (client, data) => {
-        this.state.onMovePlayer(client, data);
-      });
-
-    this.onMessage(MessageType.TAKE_DAME, (client, data)=>{
-      this.state.takeDame(data);
-    });
-
-    this.onMessage(MessageType.GUN, (client, data)=>{
-      this.state.updateGun(client, data);
-    });
-
-    this.onMessage(MessageType.SHOT, (client, data)=>{
-      this.broadcast(MessageType.SHOT, client.sessionId);
-    });
+    // Register message handlers for messages from the client
+    this.registerForMessages();
+   
 
   }
 
@@ -65,6 +55,42 @@ export class GameRoom extends Room<GameRoomState> {
 
   onDispose() {
     console.log("room", this.roomId, "disposing...");
+  }
+
+  //////////////////////////////////////////////////////////////////////////////////
+
+
+  spawnRate: number = 2000;
+
+  customLogic(){
+    //spawn heli
+    // const heliSpawner = new HeliSpawner(4);
+    // this.clock.setInterval(()=>{
+    //   const heli: HelicopterState = heliSpawner.spawnHeli();
+    // this.state.onAddHelicopter(heli);
+    // }, this.spawnRate);
+  }
+
+
+  registerForMessages(){
+    this.onMessage(MessageType.MOVE, (client, data) => {
+      this.state.onMovePlayer(client, data);
+    });
+
+    this.onMessage(MessageType.TAKE_DAME, (client, data)=>{
+    });
+
+    this.onMessage(MessageType.GUN, (client, data)=>{
+    });
+
+    this.onMessage(MessageType.SHOT, (client, data)=>{
+      console.log('shot: '+ client.sessionId);
+      this.broadcast(MessageType.SHOT, client.sessionId);
+    });
+
+    this.onMessage(MessageType.UpdatePlayer, (client, changeSet)=>{
+      this.state.updatePlayer(client, changeSet);
+    });
   }
 
 }
